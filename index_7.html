@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portail de l'Éducation Nationale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marine: #0F2A4A;
+    --marine-clair: #1B3E66;
+    --or: #C9A227;
+    --papier: #F7F5F0;
+    --rouge: #7A1F2B;
+    --charbon: #1C1C1C;
+    --gris: #5B5F63;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--papier);
+    color:var(--charbon);
+    font-family:'Public Sans', sans-serif;
+    line-height:1.55;
+  }
+
+  h1,h2,h3{
+    font-family:'Source Serif 4', serif;
+    color:var(--marine);
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  :focus-visible{ outline:2px solid var(--rouge); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  .top-bar{
+    background:var(--marine);
+    color:#dfe6ee;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.03em;
+    padding:0.5rem 2rem;
+    display:flex;
+    justify-content:space-between;
+    text-transform:uppercase;
+  }
+
+  @media (max-width:600px){
+    .top-bar span:last-child{ display:none; }
+  }
+
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.3rem 2rem;
+    border-bottom:3px solid var(--or);
+    background:var(--papier);
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:0.9rem;
+  }
+
+  .seal{
+    width:44px; height:44px;
+    border-radius:50%;
+    border:1.5px solid var(--marine);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    flex-shrink:0;
+  }
+  .seal::before{
+    content:'';
+    position:absolute;
+    inset:4px;
+    border:1px solid var(--or);
+    border-radius:50%;
+  }
+  .seal span{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    color:var(--marine);
+    font-size:0.85rem;
+  }
+
+  .brand-text .eyebrow-nav{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--gris);
+  }
+  .brand-text h2{
+    font-size:1.05rem;
+    line-height:1.2;
+  }
+
+  nav ul{
+    display:flex;
+    gap:2.2rem;
+    list-style:none;
+  }
+
+  nav ul li a{
+    font-size:0.9rem;
+    color:var(--marine);
+    position:relative;
+    padding-bottom:4px;
+    font-weight:500;
+  }
+  nav ul li a::after{
+    content:'';
+    position:absolute;
+    bottom:0; left:0;
+    width:0%; height:2px;
+    background:var(--or);
+    transition:width 0.3s ease;
+  }
+  nav ul li a:hover::after{ width:100%; }
+
+  @media (max-width:780px){
+    nav ul{ display:none; }
+  }
+
+  .hero{
+    position:relative;
+    padding:5.5rem 2rem 4.5rem;
+    background:linear-gradient(180deg, var(--marine) 0%, var(--marine-clair) 100%);
+    color:var(--papier);
+    overflow:hidden;
+  }
+
+  .hero::after{
+    content:'';
+    position:absolute;
+    right:-120px; top:-120px;
+    width:420px; height:420px;
+    border:1px solid rgba(201,162,39,0.25);
+    border-radius:50%;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;
+    right:-40px; top:-40px;
+    width:280px; height:280px;
+    border:1px solid rgba(201,162,39,0.35);
+    border-radius:50%;
+  }
+
+  .hero-inner{
+    max-width:1100px;
+    margin:0 auto;
+    position:relative;
+    z-index:2;
+  }
+
+  .ref-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    color:var(--or);
+    margin-bottom:1.6rem;
+    border:1px solid rgba(201,162,39,0.4);
+    padding:0.4rem 0.9rem;
+  }
+
+  h1.hero-title{
+    font-size:clamp(2.2rem, 4.6vw, 3.6rem);
+    font-weight:600;
+    max-width:18ch;
+    line-height:1.15;
+    opacity:0;
+    animation: rise 0.8s ease forwards;
+  }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(20px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .hero-sub{
+    max-width:52ch;
+    margin-top:1.4rem;
+    color:#c7d2de;
+    font-size:1.02rem;
+    opacity:0;
+    animation: rise 0.8s ease 0.15s forwards;
+  }
+
+  .hero-cta{
+    margin-top:2.2rem;
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+    opacity:0;
+    animation: rise 0.8s ease 0.3s forwards;
+  }
+
+  .btn{
+    padding:0.85rem 1.7rem;
+    font-size:0.85rem;
+    font-weight:500;
+    border-radius:2px;
+    transition:transform 0.25s ease, background 0.25s ease;
+  }
+  .btn-primary{ background:var(--or); color:var(--marine); }
+  .btn-primary:hover{ transform:translateY(-2px); background:#dab646; }
+  .btn-ghost{ border:1px solid rgba(247,245,240,0.5); color:var(--papier); }
+  .btn-ghost:hover{ background:rgba(247,245,240,0.1); transform:translateY(-2px); }
+
+  section{
+    padding:5rem 2rem;
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:2rem;
+    margin-bottom:2.8rem;
+    flex-wrap:wrap;
+    border-bottom:1px solid rgba(15,42,74,0.15);
+    padding-bottom:1.4rem;
+  }
+  .section-head h2{ font-size:clamp(1.6rem, 3vw, 2.2rem); }
+  .section-head p{ max-width:32ch; color:var(--gris); font-size:0.95rem; }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  .missions{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border:1px solid rgba(15,42,74,0.15);
+  }
+  @media (max-width:820px){ .missions{ grid-template-columns:1fr; } }
+
+  .mission-card{
+    padding:2rem 1.8rem;
+    border-right:1px solid rgba(15,42,74,0.15);
+  }
+  .mission-card:last-child{ border-right:none; }
+
+  .mission-card .mono{ color:var(--rouge); }
+  .mission-card h3{ font-size:1.15rem; margin:0.7rem 0 0.5rem; }
+  .mission-card p{ font-size:0.9rem; color:var(--gris); }
+
+  .communiques{ list-style:none; }
+  .communique{
+    display:flex;
+    gap:1.6rem;
+    align-items:baseline;
+    padding:1.3rem 0;
+    border-bottom:1px solid rgba(15,42,74,0.12);
+  }
+  .communique .date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--gris);
+    min-width:88px;
+  }
+  .communique .ref{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:var(--rouge);
+    min-width:130px;
+  }
+  .communique h3{
+    font-size:1.02rem;
+    color:var(--charbon);
+    font-family:'Public Sans', sans-serif;
+    font-weight:500;
+    flex:1;
+  }
+  .communique h3:hover{ color:var(--marine); text-decoration:underline; text-underline-offset:3px; }
+
+  @media (max-width:640px){
+    .communique{ flex-wrap:wrap; }
+    .communique .ref{ order:3; }
+  }
+
+  .chiffres{
+    background:var(--marine);
+    color:var(--papier);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+  }
+  @media (max-width:780px){ .chiffres{ grid-template-columns:repeat(2,1fr); } }
+
+  .chiffre{
+    padding:2.4rem 1.6rem;
+    border-right:1px solid rgba(247,245,240,0.15);
+    border-bottom:1px solid rgba(247,245,240,0.15);
+  }
+  .chiffre b{
+    font-family:'Source Serif 4', serif;
+    font-size:2.2rem;
+    color:var(--or);
+    display:block;
+  }
+  .chiffre span{
+    font-size:0.82rem;
+    color:#c7d2de;
+  }
+
+  .sceau-section{
+    text-align:center;
+    padding-top:6rem;
+    padding-bottom:6rem;
+  }
+
+  .grand-sceau{
+    width:160px; height:160px;
+    margin:0 auto 1.6rem;
+    border-radius:50%;
+    border:2px solid var(--marine);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .grand-sceau::before{
+    content:'';
+    position:absolute;
+    inset:10px;
+    border:1px solid var(--or);
+    border-radius:50%;
+  }
+  .grand-sceau .txt{
+    font-family:'Source Serif 4', serif;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    color:var(--marine);
+    text-transform:uppercase;
+    max-width:100px;
+    line-height:1.4;
+  }
+
+  .sceau-section p{
+    max-width:44ch;
+    margin:0 auto;
+    color:var(--gris);
+    font-size:0.95rem;
+  }
+
+  footer{
+    background:var(--charbon);
+    color:#cfcfcc;
+    padding:4rem 2rem 2rem;
+  }
+  .footer-inner{
+    max-width:1100px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:2.5rem;
+  }
+  @media (max-width:700px){ .footer-inner{ grid-template-columns:1fr; } }
+
+  footer h3{
+    color:var(--papier);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-family:'IBM Plex Mono', monospace;
+    margin-bottom:1rem;
+  }
+  footer ul{ list-style:none; }
+  footer ul li{ margin-bottom:0.6rem; font-size:0.88rem; }
+  footer ul li a:hover{ color:var(--or); }
+
+  .foot-bottom{
+    max-width:1100px;
+    margin:3rem auto 0;
+    padding-top:1.6rem;
+    border-top:1px solid rgba(255,255,255,0.12);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:#8a8a86;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.6rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>Portail officiel de l'éducation</span>
+  <span>Jeudi 13 août 2026 — Service au citoyen</span>
+</div>
+
+<nav>
+  <div class="brand">
+    <div class="seal"><span>PE</span></div>
+    <div class="brand-text">
+      <div class="eyebrow-nav">République</div>
+      <h2>Portail de l'Éducation</h2>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#missions">Missions</a></li>
+    <li><a href="#communiques">Communiqués</a></li>
+    <li><a href="#chiffres">Chiffres clés</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="ref-tag mono">Réf. PE-2026-001</div>
+    <h1 class="hero-title">Au service de l'éducation pour tous les citoyens.</h1>
+    <p class="hero-sub">Le Portail de l'Éducation centralise les communiqués, les textes réglementaires et les services destinés aux élèves, aux enseignants et aux établissements.</p>
+    <div class="hero-cta">
+      <a href="#communiques" class="btn btn-primary">Consulter les communiqués</a>
+      <a href="#contact" class="btn btn-ghost">Nous contacter</a>
+    </div>
+  </div>
+</header>
+
+<section id="missions">
+  <div class="section-head reveal">
+    <h2>Nos missions</h2>
+    <p>Trois axes structurent l'action du Portail auprès des établissements et des familles.</p>
+  </div>
+  <div class="missions reveal">
+    <div class="mission-card">
+      <span class="mono">Encadrement</span>
+      <h3>Réglementation scolaire</h3>
+      <p>Publication et mise à jour des textes régissant le fonctionnement des établissements.</p>
+    </div>
+    <div class="mission-card">
+      <span class="mono">Accompagnement</span>
+      <h3>Appui aux enseignants</h3>
+      <p>Ressources pédagogiques, formations continues et suivi des programmes officiels.</p>
+    </div>
+    <div class="mission-card">
+      <span class="mono">Transparence</span>
+      <h3>Information publique</h3>
+      <p>Diffusion des statistiques et des décisions concernant le système éducatif.</p>
+    </div>
+  </div>
+</section>
+
+<section id="communiques">
+  <div class="section-head reveal">
+    <h2>Derniers communiqués</h2>
+    <p>Publications officielles classées par date, avec leur référence.</p>
+  </div>
+  <ul class="communiques reveal">
+    <li class="communique">
+      <span class="date">05 août 2026</span>
+      <span class="ref">Réf. PE-2026-014</span>
+      <h3>Calendrier officiel de la rentrée scolaire</h3>
+    </li>
+    <li class="communique">
+      <span class="date">28 juil. 2026</span>
+      <span class="ref">Réf. PE-2026-013</span>
+      <h3>Modalités d'inscription aux examens de fin d'année</h3>
+    </li>
+    <li class="communique">
+      <span class="date">14 juil. 2026</span>
+      <span class="ref">Réf. PE-2026-012</span>
+      <h3>Publication du bilan annuel de scolarisation</h3>
+    </li>
+    <li class="communique">
+      <span class="date">02 juil. 2026</span>
+      <span class="ref">Réf. PE-2026-011</span>
+      <h3>Ouverture des candidatures aux bourses d'excellence</h3>
+    </li>
+  </ul>
+</section>
+
+<section id="chiffres" style="max-width:none; padding:0;">
+  <div class="chiffres reveal">
+    <div class="chiffre"><b>1 240</b><span>Établissements recensés</span></div>
+    <div class="chiffre"><b>412 000</b><span>Élèves inscrits</span></div>
+    <div class="chiffre"><b>18 600</b><span>Enseignants en poste</span></div>
+    <div class="chiffre"><b>97%</b><span>Taux de couverture territoriale</span></div>
+  </div>
+</section>
+
+<section class="sceau-section reveal">
+  <div class="grand-sceau"><span class="txt">Portail Officiel de l'Éducation</span></div>
+  <p>Toute publication portant ce sceau est authentifiée et engage la responsabilité du Portail.</p>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <h3>Portail de l'Éducation</h3>
+      <p style="font-size:0.88rem; max-width:34ch; color:#b8b8b4;">Institution dédiée à l'information et à l'accompagnement des acteurs du système éducatif.</p>
+    </div>
+    <div>
+      <h3>Accès rapide</h3>
+      <ul>
+        <li><a href="#missions">Missions</a></li>
+        <li><a href="#communiques">Communiqués</a></li>
+        <li><a href="#chiffres">Chiffres clés</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>contact@education.gouv</li>
+        <li>Lun–Ven, 8h–16h</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>Portail de l'Éducation — document non contractuel, à des fins de démonstration</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
