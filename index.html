@@ -132,8 +132,9 @@ nav a:hover{
     align-items:center;
     position:relative;
 
+    /* NOUVELLE IMAGE */
     background:
-    linear-gradient(rgba(20,10,5,.62),rgba(20,10,5,.68)),
+    linear-gradient(rgba(20,10,5,.58),rgba(20,10,5,.68)),
     url("pate-neyoo.png")
     center/cover no-repeat;
 }
@@ -258,9 +259,12 @@ nav a:hover{
 .product-image{
     min-height:500px;
     border-radius:20px;
+
+    /* NOUVELLE IMAGE */
     background:
     url("pate-neyoo.png")
     center/cover no-repeat;
+
     box-shadow:0 25px 60px rgba(36,23,15,.18);
 }
 
@@ -504,6 +508,20 @@ nav a:hover{
     background:var(--primary-dark);
 }
 
+.notice{
+    margin-top:25px;
+    padding:15px;
+    border-radius:9px;
+    background:#edf8f1;
+    color:#176b3c;
+    font-size:13px;
+    display:none;
+}
+
+.notice.show{
+    display:block;
+}
+
 /* =========================
    HOW IT WORKS
 ========================= */
@@ -540,24 +558,6 @@ nav a:hover{
 
 .step p{
     color:var(--gray);
-}
-
-/* =========================
-   NOTICE
-========================= */
-
-.notice{
-    margin-top:25px;
-    padding:15px;
-    border-radius:9px;
-    background:#edf8f1;
-    color:#176b3c;
-    font-size:13px;
-    display:none;
-}
-
-.notice.show{
-    display:block;
 }
 
 /* =========================
@@ -810,7 +810,7 @@ footer{
 <header>
     <div class="header-container">
 
-        <a href="#" class="logo">
+        <a href="#accueil" class="logo">
             NEYOO<span>.</span>
         </a>
 
@@ -822,6 +822,7 @@ footer{
         </nav>
 
         <div style="display:flex;align-items:center;gap:10px;">
+
             <button class="cart-button" onclick="openCart()">
                 Panier
                 <span class="cart-count" id="cartCount">0</span>
@@ -830,11 +831,11 @@ footer{
             <button class="menu-button" onclick="toggleMenu()">
                 ☰
             </button>
+
         </div>
 
     </div>
 </header>
-
 
 <!-- =========================
      HERO
@@ -875,7 +876,6 @@ footer{
 
 </section>
 
-
 <!-- =========================
      PRODUCT
 ========================= -->
@@ -895,11 +895,9 @@ footer{
 
     </div>
 
-
     <div class="product-wrapper">
 
         <div class="product-image"></div>
-
 
         <div class="product-info">
 
@@ -916,7 +914,6 @@ footer{
                 à votre commande. Les trois options concernent le même
                 Pâté Kreyòl.
             </p>
-
 
             <div class="price-title">
                 Choisissez votre option
@@ -950,7 +947,6 @@ footer{
 
             </div>
 
-
             <div class="quantity-area">
 
                 <strong>Quantité</strong>
@@ -977,7 +973,6 @@ footer{
 
             </div>
 
-
             <button class="add-cart" onclick="addSelectedProduct()">
                 Ajouter au panier
             </button>
@@ -987,7 +982,6 @@ footer{
     </div>
 
 </section>
-
 
 <!-- =========================
      ORDER
@@ -1010,9 +1004,7 @@ footer{
 
         </div>
 
-
         <div class="order-layout">
-
 
             <!-- FORM -->
 
@@ -1041,7 +1033,6 @@ footer{
 
                         </div>
 
-
                         <div class="form-group">
 
                             <label for="phone">
@@ -1056,7 +1047,6 @@ footer{
                             >
 
                         </div>
-
 
                         <div class="form-group full">
 
@@ -1073,7 +1063,6 @@ footer{
 
                         </div>
 
-
                         <div class="form-group">
 
                             <label for="date">
@@ -1087,7 +1076,6 @@ footer{
                             >
 
                         </div>
-
 
                         <div class="form-group">
 
@@ -1103,7 +1091,6 @@ footer{
 
                         </div>
 
-
                         <div class="form-group">
 
                             <label for="class">
@@ -1118,7 +1105,6 @@ footer{
 
                         </div>
 
-
                         <div class="form-group">
 
                             <label for="location">
@@ -1132,7 +1118,6 @@ footer{
                             >
 
                         </div>
-
 
                         <div class="form-group full">
 
@@ -1149,14 +1134,12 @@ footer{
 
                     </div>
 
-
                     <button
                         type="submit"
                         class="submit-order"
                     >
                         Préparer la commande sur WhatsApp
                     </button>
-
 
                     <div
                         class="notice"
@@ -1170,7 +1153,6 @@ footer{
                 </form>
 
             </div>
-
 
             <!-- SUMMARY -->
 
@@ -1212,7 +1194,6 @@ footer{
 
 </section>
 
-
 <!-- =========================
      HOW IT WORKS
 ========================= -->
@@ -1230,7 +1211,6 @@ footer{
         </p>
 
     </div>
-
 
     <div class="steps">
 
@@ -1251,7 +1231,6 @@ footer{
 
         </div>
 
-
         <div class="step">
 
             <div class="step-number">
@@ -1268,7 +1247,6 @@ footer{
             </p>
 
         </div>
-
 
         <div class="step">
 
@@ -1291,7 +1269,6 @@ footer{
 
 </section>
 
-
 <!-- =========================
      FOOTER
 ========================= -->
@@ -1313,7 +1290,6 @@ footer{
 
         </div>
 
-
         <div class="footer-contact">
 
             <h3>
@@ -1332,15 +1308,13 @@ footer{
 
     </div>
 
-
     <div class="copyright">
-
-        © 2026 ING Fawenbert Regis contact + 1 508-405-5521. Tous droits réservés.
-
+        © 2026 ING Fawenbert Regis —
+        contact +1 508-405-5521.
+        Tous droits réservés.
     </div>
 
 </footer>
-
 
 <!-- =========================
      CART MODAL
@@ -1365,7 +1339,6 @@ footer{
 
         </div>
 
-
         <div id="cartItems">
 
             <div class="summary-empty">
@@ -1373,7 +1346,6 @@ footer{
             </div>
 
         </div>
-
 
         <div class="cart-total">
 
@@ -1390,7 +1362,6 @@ footer{
 
         </div>
 
-
         <button
             class="submit-order"
             onclick="goToOrder()"
@@ -1401,7 +1372,6 @@ footer{
     </div>
 
 </div>
-
 
 <script>
 
@@ -1467,7 +1437,9 @@ function changeQuantity(amount){
     productQuantity += amount;
 
     if(productQuantity < 1){
+
         productQuantity = 1;
+
     }
 
     document.getElementById("productQuantity").value =
@@ -1492,7 +1464,6 @@ function addSelectedProduct(){
 
         });
 
-
     if(existing){
 
         existing.quantity += productQuantity;
@@ -1500,13 +1471,16 @@ function addSelectedProduct(){
     }else{
 
         cart.push({
+
             name:productName,
+
             price:selectedPrice,
+
             quantity:productQuantity
+
         });
 
     }
-
 
     productQuantity = 1;
 
@@ -1556,9 +1530,13 @@ function updateCart(){
     if(cart.length === 0){
 
         cartItems.innerHTML = `
+
             <div class="summary-empty">
+
                 Votre panier est vide.
+
             </div>
+
         `;
 
     }else{
@@ -1566,6 +1544,7 @@ function updateCart(){
         cartItems.innerHTML = cart.map(function(item,index){
 
             return `
+
                 <div class="cart-item">
 
                     <div class="cart-item-info">
@@ -1582,7 +1561,9 @@ function updateCart(){
 
                     <div class="cart-actions">
 
-                        <button onclick="changeCartQuantity(${index},-1)">
+                        <button
+                            onclick="changeCartQuantity(${index},-1)"
+                        >
                             −
                         </button>
 
@@ -1590,17 +1571,22 @@ function updateCart(){
                             ${item.quantity}
                         </strong>
 
-                        <button onclick="changeCartQuantity(${index},1)">
+                        <button
+                            onclick="changeCartQuantity(${index},1)"
+                        >
                             +
                         </button>
 
-                        <button onclick="removeCartItem(${index})">
+                        <button
+                            onclick="removeCartItem(${index})"
+                        >
                             ×
                         </button>
 
                     </div>
 
                 </div>
+
             `;
 
         }).join("");
@@ -1613,9 +1599,13 @@ function updateCart(){
     if(cart.length === 0){
 
         summaryItems.innerHTML = `
+
             <div class="summary-empty">
+
                 Aucun produit ajouté.
+
             </div>
+
         `;
 
     }else{
@@ -1623,18 +1613,24 @@ function updateCart(){
         summaryItems.innerHTML = cart.map(function(item){
 
             return `
+
                 <div class="summary-item">
 
                     <span>
+
                         ${item.name}
                         × ${item.quantity}
+
                     </span>
 
                     <strong>
+
                         ${item.price * item.quantity} HTG
+
                     </strong>
 
                 </div>
+
             `;
 
         }).join("");
@@ -1659,13 +1655,11 @@ function changeCartQuantity(index, amount){
 
     cart[index].quantity += amount;
 
-
     if(cart[index].quantity <= 0){
 
         cart.splice(index,1);
 
     }
-
 
     updateCart();
 
@@ -1697,7 +1691,6 @@ function openCart(){
 
 }
 
-
 function closeCart(){
 
     document
@@ -1718,10 +1711,30 @@ function goToOrder(){
     document
         .getElementById("commande")
         .scrollIntoView({
+
             behavior:"smooth"
+
         });
 
 }
+
+
+/* =========================
+   FERMER MODAL EN CLIQUANT
+   À L'EXTÉRIEUR
+========================= */
+
+document
+    .getElementById("cartModal")
+    .addEventListener("click",function(event){
+
+        if(event.target === this){
+
+            closeCart();
+
+        }
+
+    });
 
 
 /* =========================
@@ -1806,7 +1819,6 @@ document
 
             total += subtotal;
 
-
             productsMessage +=
                 "• " +
                 item.name +
@@ -1856,7 +1868,6 @@ NOTE
 ${note || "Aucune note supplémentaire."}
 
 Merci.`;
-
 
 
         const whatsappURL =
