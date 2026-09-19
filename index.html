@@ -54,15 +54,15 @@ button {
 ========================================================= */
 
 :root {
-    --black: #0b0c0d;
-    --black-light: #171819;
-    --gold: #d8b66a;
-    --gold-light: #f0d18b;
+    --black: #0F1F33;
+    --black-light: #162A42;
+    --gold: #C58A2B;
+    --gold-light: #D9A441;
     --white: #ffffff;
-    --gray: #666666;
-    --light: #f6f6f6;
-    --border: #e5e5e5;
-    --green: #19b954;
+    --gray: #667085;
+    --light: #F5F6F8;
+    --border: #E4E7EC;
+    --green: #168A4A;
 }
 
 /* =========================================================
@@ -73,8 +73,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(11, 12, 13, 0.97);
-    border-bottom: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--border);
     backdrop-filter: blur(12px);
 }
 
@@ -99,13 +99,13 @@ header {
 .logo-symbol {
     width: 48px;
     height: 48px;
-    border: 2px solid var(--white);
+    border: 2px solid var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Georgia, serif;
     font-size: 23px;
-    color: var(--white);
+    color: var(--black);
     position: relative;
 }
 
@@ -120,14 +120,14 @@ header {
 
 .logo-text strong {
     display: block;
-    color: var(--white);
+    color: var(--black);
     font-family: Georgia, serif;
     font-size: 20px;
     letter-spacing: 2px;
 }
 
 .logo-text span {
-    color: var(--gold-light);
+    color: var(--gold);
     font-size: 11px;
     letter-spacing: 1px;
 }
@@ -139,7 +139,7 @@ header {
 }
 
 .nav-links a {
-    color: #eeeeee;
+    color: #344054;
     font-size: 14px;
     position: relative;
     padding: 8px 0;
@@ -148,7 +148,7 @@ header {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--gold-light);
+    color: var(--gold);
 }
 
 .nav-links a.active::after {
@@ -170,7 +170,7 @@ header {
 .icon-btn {
     border: 0;
     background: transparent;
-    color: white;
+    color: var(--black);
     font-size: 21px;
     position: relative;
 }
@@ -195,7 +195,7 @@ header {
     display: none;
     background: transparent;
     border: 0;
-    color: white;
+    color: var(--black);
     font-size: 27px;
 }
 
@@ -206,7 +206,7 @@ header {
 .hero {
     min-height: 570px;
     background:
-        linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.35), rgba(0,0,0,.35)),
+        linear-gradient(90deg, rgba(15,31,51,.90), rgba(15,31,51,.52), rgba(15,31,51,.28)),
         url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85")
         center/cover no-repeat;
     display: flex;
@@ -222,11 +222,11 @@ header {
 
 .hero-content {
     max-width: 590px;
-    color: white;
+    color: var(--white);
 }
 
 .hero-small {
-    color: var(--gold-light);
+    color: var(--gold);
     font-size: 18px;
     letter-spacing: 3px;
     margin-bottom: 8px;
@@ -241,21 +241,21 @@ header {
 }
 
 .hero h1 span {
-    color: var(--gold-light);
+    color: var(--gold);
 }
 
 .hero p {
     margin-top: 25px;
     max-width: 520px;
     font-size: 16px;
-    color: #eeeeee;
+    color: #344054;
 }
 
 .hero-btn {
     display: inline-flex;
     margin-top: 30px;
-    background: var(--gold-light);
-    color: #111;
+    background: var(--gold);
+    color: var(--white);
     padding: 14px 24px;
     border-radius: 4px;
     font-weight: bold;
@@ -263,7 +263,7 @@ header {
 }
 
 .hero-btn:hover {
-    background: white;
+    background: var(--black);
     transform: translateY(-2px);
 }
 
@@ -280,7 +280,7 @@ header {
     max-width: 1200px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .feature {
@@ -298,7 +298,7 @@ header {
 .feature-icon {
     width: 43px;
     height: 43px;
-    border: 1px solid #222;
+    border: 1px solid var(--black);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -390,7 +390,7 @@ header {
 }
 
 .category-overlay strong {
-    color: white;
+    color: var(--white);
     font-size: 17px;
 }
 
@@ -439,7 +439,7 @@ header {
     top: 12px;
     left: 12px;
     background: var(--black);
-    color: white;
+    color: var(--white);
     padding: 5px 9px;
     font-size: 11px;
     text-transform: uppercase;
@@ -479,7 +479,7 @@ header {
     width: 100%;
     border: 0;
     background: var(--black);
-    color: white;
+    color: var(--white);
     padding: 11px;
     margin-top: 13px;
     transition: .3s;
@@ -496,7 +496,7 @@ header {
 
 .about {
     background: var(--black);
-    color: white;
+    color: var(--white);
 }
 
 .about-container {
@@ -527,7 +527,7 @@ header {
 }
 
 .about-content h2 span {
-    color: var(--gold-light);
+    color: var(--gold);
 }
 
 .about-content p {
@@ -548,7 +548,7 @@ header {
 }
 
 .about-detail strong {
-    color: white;
+    color: var(--white);
 }
 
 /* =========================================================
@@ -636,7 +636,7 @@ header {
     display: inline-block;
     margin-top: 25px;
     background: var(--green);
-    color: white;
+    color: var(--white);
     padding: 13px 20px;
     font-weight: bold;
     border-radius: 4px;
@@ -677,7 +677,7 @@ header {
 
 .newsletter {
     background: var(--black-light);
-    color: white;
+    color: var(--white);
     text-align: center;
     padding: 65px 25px;
 }
@@ -720,7 +720,7 @@ header {
 
 footer {
     background: #080909;
-    color: white;
+    color: var(--white);
 }
 
 .footer-container {
@@ -744,7 +744,7 @@ footer {
 
 .footer h4 {
     margin-bottom: 18px;
-    color: var(--gold-light);
+    color: var(--gold);
 }
 
 .footer ul {
@@ -762,7 +762,7 @@ footer {
 }
 
 .footer li a:hover {
-    color: white;
+    color: var(--white);
 }
 
 .footer-contact {
@@ -876,7 +876,7 @@ footer {
     margin-top: 18px;
     border: 0;
     background: var(--black);
-    color: white;
+    color: var(--white);
     padding: 14px;
     font-weight: bold;
 }
@@ -893,12 +893,12 @@ footer {
         top: 76px;
         left: 0;
         right: 0;
-        background: var(--black);
+        background: var(--white);
         flex-direction: column;
         align-items: flex-start;
         padding: 20px 25px 30px;
         gap: 5px;
-        border-top: 1px solid #222;
+        border-top: 1px solid var(--border);
     }
 
     .nav-links.active {
@@ -919,15 +919,11 @@ footer {
     }
 
     .features-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .feature:nth-child(2) {
+    .feature:last-child {
         border-right: 0;
-    }
-
-    .feature:nth-child(-n+2) {
-        border-bottom: 1px solid var(--border);
     }
 
     .categories {
@@ -1180,19 +1176,6 @@ footer {
 <section class="features">
 
     <div class="features-container">
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                ◇
-            </div>
-
-            <div>
-                <strong>Livraison possible</strong>
-                <span>Aux Cayes et environs</span>
-            </div>
-
-        </div>
 
         <div class="feature">
 
